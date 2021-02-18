@@ -1,8 +1,8 @@
-class pascalTriangele {
+export default class PascalTriangle {
     constructor(n = 5) {
         this.n = n;
         this.currentIteration = 5;
-        this.pascalTriangele = [
+        this.pascalTriangle = [
             [1],
             [1, 1],
             [1, 2, 1],
@@ -17,22 +17,21 @@ class pascalTriangele {
             }
     }
     iteration() {
-        const currentLine = this.pascalTriangele[this.currentIteration - 1];
+        const currentLine = this.pascalTriangle[this.currentIteration - 1];
         let tempLine = [1];
         for (let i = 0; i < Math.trunc(this.currentIteration / 2); i += 1) {
-            tempLine.push(currentLine[i] + currentLine[i + 1])
+            tempLine.push(currentLine[i] + currentLine[i + 1]);
         }
         if (this.currentIteration % 2)
-            this.pascalTriangele.push([...tempLine, ...tempLine.reverse()])
-        else this.pascalTriangele.push([...tempLine, ...tempLine.reverse().slice(1)])
+            this.pascalTriangle.push([...tempLine, ...tempLine.reverse()]);
+        else
+            this.pascalTriangle.push([...tempLine, ...tempLine.reverse().slice(1)]);
     }
     getLine(n) {
         if (n > this.currentIteration) {
             this.n = n;
             this.create();
         }
-        return this.pascalTriangele[n - 1];
+        return this.pascalTriangle[n - 1];
     }
 }
-let triangele = new pascalTriangele();
-export { pascalTriangele };
