@@ -1,6 +1,6 @@
 import './triangle.css'
 import LineTriangle from '../lineTriangle'
-// import ParametersPanel from '../parametersPanel'
+
 function Triangle({n})
 {let triangleLines=[];
    let i=0;
@@ -12,7 +12,7 @@ function Triangle({n})
        }while(i<n);
    return (
    <div className='wrapperTriangle' >
-       {/* <ParametersPanel /> */}
+   
       <div className='Triangle'>
       {triangleLines}
        </div>
