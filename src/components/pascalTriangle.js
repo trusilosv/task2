@@ -22,10 +22,11 @@ export default class PascalTriangle {
         for (let i = 0; i < Math.trunc(this.currentIteration / 2); i += 1) {
             tempLine.push(currentLine[i] + currentLine[i + 1]);
         }
+        let temp =tempLine.slice();
         if (this.currentIteration % 2)
-            this.pascalTriangle.push([...tempLine, ...tempLine.reverse()]);
-        else
-            this.pascalTriangle.push([...tempLine, ...tempLine.reverse().slice(1)]);
+            this.pascalTriangle.push([...tempLine, ...temp.reverse()]);
+        else 
+            this.pascalTriangle.push([...tempLine, ...temp.reverse().slice(1)]);
     }
     getLine(n) {
         if (n > this.currentIteration) {
