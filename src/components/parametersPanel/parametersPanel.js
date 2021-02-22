@@ -5,11 +5,14 @@ function ParametersPanel({changeLines}){
       onSubmit={ (e)=>{
          e.preventDefault()
          changeLines(e.target.querySelector('.changeLines').value) }} >
+         <div className='s'>
          <input className='changeLines'
+         placeholder=' '
           type='number'
           min='1'
-          max='20'
-          placeholder='enter the number of lines' />
+          max='20' />
+          <span className='span_test'>enter the number of lines</span>
+          </div>
          <button type='submit'  
          className='buttonPanel'
          >ok</button>

@@ -1,6 +1,54 @@
+.span_test{
+    pointer-events: none;
+    font-size: 20px;
+    left:10px;
+    position: absolute;
+    top: 20px;
+    color: darkorchid;
+    font-weight: 800;  
+    
+   
+}
 .changeLines{
-    height: 40px;
-    text-align: center;
+   padding-top: 20px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: inherit;
+    border-radius: 10px;
     width: 250px;
-font-size: 20px;
+    transition: all 1s;
+    border:solid;
+}
+.changeLines:focus+.span_test{
+    transition: all 1s;
+   transform: translate(-30px,-20px)scale(0.8);
+}
+.changeLines:not(:focus)+.span_test{
+    transition: all 1s;
+  
+}
+.changeLines:not(:placeholder-shown)+.span_test{
+    transition: all 1s;
+    transform: translate(-30px,-20px)scale(0.8);
+}
+.s{
+    position: relative;
+}
+.buttonPanel {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    font-weight: 900;
+    margin-top: 20px;
+  
+    border:solid;
+}
+
+.buttonPanel:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
