@@ -11,12 +11,12 @@
 }
 .changeLines{
    padding-top: 20px;
-    height: 30px;
+    height: 60px;
     font-size: 20px;
     line-height: 20px;
     text-align: inherit;
     border-radius: 10px;
-    width: 250px;
+    width: 260px;
     transition: all 1s;
     border:solid;
 }
@@ -32,8 +32,9 @@
     transition: all 1s;
     transform: translate(-30px,-20px)scale(0.8);
 }
-.s{
+.s{ width: 250px;
     position: relative;
+    margin: 10px 40px;
 }
 .buttonPanel {
     -webkit-transition-duration: 0.4s; /* Safari */

@@ -1,16 +1,24 @@
 import './appHeader.css'
-import logo from './logo.jpg';
-import logoReact from './logo192.png';
+import {Link} from 'react-router-dom'
 
 function AppHeader() {
    return (
-     <>
        <header >
-         <h1>Pascal's triangle</h1>
-         <img src={logo} className="App-logo" alt="logo" />
-         <img src={logoReact} className="App-logo" alt="logo" />
+         <h1>
+           <Link  to='/'>My first project</Link>
+           </h1>
+         <ul className='headerList'>
+           <li>
+             <Link to='/triangle'>Triangle</Link>
+           </li>
+           <li>
+           <Link to='/posts'>Posts</Link>
+             <li>
+             <Link to='/chess'>chess</Link>
+           </li>
+           </li>
+         </ul>
          </header>
-     </>
    );
  }
 

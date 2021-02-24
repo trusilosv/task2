@@ -1,6 +1,7 @@
 import './parametersPanel.css';
 function ParametersPanel({changeLines}){
    return (
+      <>
       <form className='ParametersPanel'
       onSubmit={ (e)=>{
          e.preventDefault()
@@ -17,6 +18,8 @@ function ParametersPanel({changeLines}){
          className='buttonPanel'
          >ok</button>
       </form>
+     
+       </>
     )
 }
 export default  ParametersPanel

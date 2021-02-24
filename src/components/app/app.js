@@ -1,21 +1,20 @@
 import AppHeader from '../appHeader'
 import './App.css'
-import{ useState } from 'react'
 import Triangle from '../triangle'
-import ParametersPanel from '../parametersPanel'
-
+import PostMain from '../post-main'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 function App() {
-  const [count, setCount] = useState(16)
+  
   return (
+    <Router>
     <div className="App">
      <AppHeader/>
-     <main>  
-     <ParametersPanel 
-     changeLines={(count)=>setCount(count)}
-      />
-     <Triangle n={count}/>
+     <main> 
+      <Route path='/triangle' component={Triangle} />
+      <Route path='/posts'  component={PostMain}/>
      </main>
     </div>
+    </Router>
   );
 }
 

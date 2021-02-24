@@ -1,7 +1,9 @@
+
 import './lineTriangleElement.css'
 function LineTriangleElement({value}){
+
     return (
-       <div className='LineTriangleElement'>
+       <div   className='LineTriangleElement'>
           <p>{value}</p>
        </div>
      );

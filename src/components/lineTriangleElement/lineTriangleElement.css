@@ -4,5 +4,7 @@
 .LineTriangleElement p{
    margin: 0;
    padding: 0;
+   color: white;
+   font-weight: 800;
   
 }
