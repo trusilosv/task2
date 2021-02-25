@@ -1,0 +1,29 @@
+
+.homePage{ 
+    position: absolute;
+    width: 100%;
+    max-height:100vh;
+    overflow: hidden;
+    top:0;
+    left: 0;
+    z-index: -99;
+}
+.videoHome{
+    width: 100%;
+   
+}
+.videoHomHide{
+    opacity: 0;
+    transition: all 2s;
+    width: 0;
+    height: 0;
+}
+.home_logo{
+    width: 150px;
+    height: 150px;
+}
+body{
+    background-image: url('../home/hogwars.jpg');
+}
+
+

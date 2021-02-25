@@ -5,7 +5,7 @@ import PostStatusFilter from '../post-status-filter';
 import PostList from '../post-list';
 import PostAddForm from '../post-add-form';
 import './PostMain.css';
-import GetPost from '../../services/'
+
 
 export default class PostMain extends Component {
     constructor(props) {

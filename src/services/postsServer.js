@@ -1,8 +1,10 @@
 let url='http://178.172.252.153:4000/';
 export function GetPost(id) {
+    let data;
     fetch(`${url}posts${id?'/'+id:''}`)
     .then((response) => response.json())
-    .then((s) => console.log(s))
+    .then((s) => data=s)
+    return data;
 }
 export function PostPost(data) {
     fetch(`${url}posts/5`,

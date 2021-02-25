@@ -1,9 +1,36 @@
-li{
+@font-face {
+    font-family: HarryPotter; 
+    src: url('./10467.ttf'); 
+   }
+li{ display: inline;
     list-style-type: none;
+    margin: 20px;
+ font-size:  70px;
+ text-shadow: cornsilk 2px 1px;
 }
 a
 {
     text-decoration: none;
     color:  black;
 
+}
+body{
+    font-family: HarryPotter;
+}
+.headerHeading{
+    font-weight: 800;
+    font-size: 100px;
+    background: linear-gradient(165deg,#fc0404 55%,#fceb02 0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   
+    align-items: center;
+}
+header:nth-child(0)
+{
 }
