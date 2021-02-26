@@ -16,6 +16,9 @@ a
 }
 body{
     font-family: HarryPotter;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: black;
 }
 .headerHeading{
     font-weight: 800;
@@ -28,9 +31,16 @@ header{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-   
+   position: sticky;
+   top:0px;
     align-items: center;
+    z-index: 2;
+   
 }
-header:nth-child(0)
-{
+@media (){
+    header{
+    background-color: cyan;
+    transition: all 2s;
+    }
+   
 }

@@ -1,2 +1,2 @@
-import AppFooter from './appHeader'
+import AppFooter from './appFooter'
 export default AppFooter;
