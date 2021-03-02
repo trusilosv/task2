@@ -1,47 +1,49 @@
-let url='http://178.172.252.153:4000/';
-export function GetPost(id) {
-    let data;
-    fetch(`${url}posts${id?'/'+id:''}`)
-    .then((response) => response.json())
-    .then((s) => data=s)
-    return data;
-}
-export function PostPost(data) {
-    fetch(`${url}posts/5`,
-        {
+export default  class PostsServer {
+    constructor() {
+        this._Server = 'http://192.168.88.65:3008/'
+    }
+ 
+    async getResource(url,body) {
+        const res = await fetch(this._Server+url,body);
+        if (!res.ok) {
+          throw new Error(`Could not fetch ${url}` +
+            `, reseived ${res.status}`)
+        }
+        return await res.json()
+    }
+ 
+    async getPosts() {
+        const posts = await this.getResource('posts')
+        return posts
+    }
+    
+    async getpost(id) {
+        const post = await this.getResource(`posts/${id}`,)
+        return post
+    }
+    
+    async postPost(post) {
+        const body= {
             method: 'POST',
-            body: JSON.stringify(data),
+            body: JSON.stringify(post),
             headers: {
                 'Content-Type': 'application/json'
             }
-
-        })
-    .then((response) => response.json())
-    .then((s) => console.log(s))
-}
-export function DeletePost(id) {
-    fetch(`${url}posts/${id}`,
-        {
+ 
+        }
+        const res=await this.getResource('posts/',body)
+        return res;
+    }
+    async deletePost(id) {
+        const body={
             method: 'DELETE', 
             headers: { 
                 'Content-type': 'application/json'
             } 
+        }
+        const res = await this.getResource(`posts/${id}`,body);
+        return res
+    }
+ }
 
-        })
-    .then((response) => response.json())
-    .then((s) => console.log(s))
-}
-export function SetUrl(tempUrl){url=tempUrl};
-// function put(n) {
-//     fetch(`http://178.172.252.153:4000/posts/${n}`,
-//         {
-//             method: 'PUT', 
-//             body: JSON.stringify(data2),
-//             headers: { 
-//                 'Content-type': 'application/json'
-//             } 
 
-//         })
-//     .then((response) => response.json())
-//     .then((s) => console.log(s))
-// }

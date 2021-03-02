@@ -1,24 +1,26 @@
-import React, {Component} from 'react';
+import React, {Component,useEffect} from 'react';
 import PostHeader from '../postHeader';
 import SearchPanel from '../search-panel';
 import PostStatusFilter from '../post-status-filter';
 import PostList from '../post-list';
 import PostAddForm from '../post-add-form';
 import './PostMain.css';
-
+import PostStatusServer from '../postStatusServer'
+import PostsServer from '../../services/postsServer';
+import TelegrammSendMessage from '../../services/telegramBot'
 
 export default class PostMain extends Component {
     constructor(props) {
         super(props);
+        this.server=new PostsServer();
         this.state = {
-            data : [
-                {label: 'Going to learn React', important: true, like: false, id: 1},
-                {label: 'That is so good', important: false, like: false, id: 2},
-                {label: 'I need a break...', important: false, like: false, id: 3}
-            ],
+            data : [],
             term: '',
-            filter: 'all'
+            filter: 'all',
+            serverOn:'ServerON'
         };
+        
+        this.checkServer();
         this.deleteItem = this.deleteItem.bind(this);
         this.addItem = this.addItem.bind(this);
         this.onToggleImportant = this.onToggleImportant.bind(this);
@@ -26,33 +28,50 @@ export default class PostMain extends Component {
         this.onUpdateSearch = this.onUpdateSearch.bind(this);
         this.onFilterSelect = this.onFilterSelect.bind(this);
         this.maxId = 4;
+       
+    }
+   
+   async checkServer(){
+        this.loadData()
+    const  checkServer= setInterval(async()=>{
+        try{
+        if(window.location.href.substr(-6)==='/posts'){
+            const server=await this.server.getPosts()
+        if(server){
+          this.loadData();
+        if(window.location.href.substr(-6)==='/posts')
+   this.setState({serverOn:'ServerON'})}
+    }
+   else clearInterval(checkServer);
+     }catch(e){if(window.location.href.substr(-6)==='/posts')
+     TelegrammSendMessage('warning! Server is not available')
+        this.setState({serverOn:'ServerOFF'})}
+     
+    },2000)
+  }  
+  loadData()
+ {
+  this.server.getPosts()
+  .then((data)=>{
+      this.setState({data:data})
+      
+  })
+ }
+  async  deleteItem(id) {
+        this.server.deletePost(id);
+        this.loadData();
     }
 
-    deleteItem(id) {
-        this.setState(({data}) => {
-            const index = data.findIndex(elem => elem.id === id);
-
-            const newArr = [...data.slice(0, index), ...data.slice(index + 1)];
-
-            return {
-                data: newArr
-            }
-        });
-    }
-
-    addItem(body) {
+   async addItem(body) {
         if(body){
         const newItem = {
             label: body,
             important: false,
-            id: this.maxId++
         }
-        this.setState(({data}) => {
-            const newArr = [...data, newItem];
-            return {
-                data: newArr
-            }
-        })}
+        TelegrammSendMessage(body);
+       this.server.postPost(newItem)
+      }
+       this.loadData()
     }
 
     onToggleImportant(id) {
@@ -94,6 +113,7 @@ export default class PostMain extends Component {
     }
 
     filterPost(items, filter) {
+        
         if (filter === 'like') {
             return items.filter(item => item.like)
         } else {
@@ -110,13 +130,14 @@ export default class PostMain extends Component {
     }
 
     render() {
-        const {data, term, filter} = this.state;
-
+        const {data, term, filter,serverOn} = this.state;
+        
         const liked = data.filter((item) => item.like).length;
         const allPosts = data.length;
         const visiblePosts = this.filterPost(this.searchPost(data, term), filter);
         return (
             <div className="PostMain">
+                <PostStatusServer serverOn={serverOn} />
                 <PostHeader liked={liked} allPosts={allPosts}/>
                 <div className="search-panel d-flex">
                     <SearchPanel

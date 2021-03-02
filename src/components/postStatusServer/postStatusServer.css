@@ -1,0 +1,8 @@
+.ServerON{ font-size: 30px;
+color: greenyellow;
+}
+.ServerOFF{
+   color:indianred;
+   font-size: 35px;
+   font-weight: 900;
+}

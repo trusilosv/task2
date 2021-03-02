@@ -37,10 +37,3 @@ header{
     z-index: 2;
    
 }
-@media (){
-    header{
-    background-color: cyan;
-    transition: all 2s;
-    }
-   
-}

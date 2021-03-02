@@ -9,6 +9,7 @@ function App() {
   
   return (
     <Router>
+      <div className='body'>
      <AppHeader/>
      <main> 
       <Route path='/triangle' component={Triangle} />
@@ -16,6 +17,7 @@ function App() {
       <Route path='/' exact component={Home}/>
      </main>
      <AppFooter/>
+     </div>
     </Router>
   );
 }

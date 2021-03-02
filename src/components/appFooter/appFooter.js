@@ -6,6 +6,9 @@ function AppFooter() {
     const [count, setCount] = useState(false)
     return ( 
     <footer>
+        <a href='https://t.me/drefersa' className='homeTechnologies_element logo_react'>
+        <img className='home_logo' src={Telegram_logo}  alt="logo"  /> 
+        </a>
         <button type='button'  className = 'telegramLogo'
         onClick = { 
             () =>setCount(count?false:<TelegramForm/>)}
