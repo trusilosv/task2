@@ -47,7 +47,7 @@ export default class PostMain extends Component {
      TelegrammSendMessage('warning! Server is not available')
         this.setState({serverOn:'ServerOFF'})}
      
-    },2000)
+    },1000)
   }  
   loadData()
  {

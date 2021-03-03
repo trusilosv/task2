@@ -1,6 +1,6 @@
 export default  class PostsServer {
     constructor() {
-        this._Server = 'http://192.168.88.65:3008/'
+        this._Server = 'http://87.252.245.221:3000/'
     }
  
     async getResource(url,body) {
