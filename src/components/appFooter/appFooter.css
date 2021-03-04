@@ -2,4 +2,6 @@ footer{
    flex: 0 0 auto;
    position: sticky;
    bottom: 0px;
+   align-self: flex-end;
+   margin-right: 30px;
 }

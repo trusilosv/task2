@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <PostMain/> PostMain have rendered correctly 1`] = `
+<div
+  className="PostMain"
+>
+  <p
+    className="ServerON"
+  >
+    ServerON
+  </p>
+  <div
+    className="app-header d-flex"
+  >
+    <h2>
+      0
+       записей, из них понравилось 
+      0
+    </h2>
+  </div>
+  <div
+    className="search-panel d-flex"
+  >
+    <input
+      className="form-control search-input"
+      onChange={[Function]}
+      placeholder="Поиск по записям"
+      type="text"
+      value=""
+    />
+    <div
+      className="btn-group"
+    >
+      <button
+        className="btn btn-info"
+        onClick={[Function]}
+        type="button"
+      >
+        Все
+      </button>
+      <button
+        className="btn btn-outline-secondary"
+        onClick={[Function]}
+        type="button"
+      >
+        Понравилось
+      </button>
+    </div>
+  </div>
+  <ul
+    className="app-list list-group"
+  />
+  <form
+    className="bottom-panel d-flex"
+    onSubmit={[Function]}
+  >
+    <input
+      className="form-control new-post-label"
+      minLength="6"
+      onChange={[Function]}
+      placeholder="О чем вы думаете сейчас?"
+      type="text"
+      value=""
+    />
+    <button
+      className="btn btn-outline-secondary"
+      type="submit"
+    >
+      Добавить
+    </button>
+  </form>
+</div>
+`;

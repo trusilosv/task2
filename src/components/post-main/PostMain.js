@@ -12,15 +12,13 @@ import TelegrammSendMessage from '../../services/telegramBot'
 export default class PostMain extends Component {
     constructor(props) {
         super(props);
-        this.server=new PostsServer();
+        this.server = new PostsServer();
         this.state = {
             data : [],
             term: '',
             filter: 'all',
             serverOn:'ServerON'
         };
-        
-        this.checkServer();
         this.deleteItem = this.deleteItem.bind(this);
         this.addItem = this.addItem.bind(this);
         this.onToggleImportant = this.onToggleImportant.bind(this);
@@ -28,38 +26,45 @@ export default class PostMain extends Component {
         this.onUpdateSearch = this.onUpdateSearch.bind(this);
         this.onFilterSelect = this.onFilterSelect.bind(this);
         this.maxId = 4;
-       
     }
-   
-   async checkServer(){
-        this.loadData()
-    const  checkServer= setInterval(async()=>{
-        try{
-        if(window.location.href.substr(-6)==='/posts'){
-            const server=await this.server.getPosts()
-        if(server){
-          this.loadData();
-        if(window.location.href.substr(-6)==='/posts')
-   this.setState({serverOn:'ServerON'})}
-    }
-   else clearInterval(checkServer);
-     }catch(e){if(window.location.href.substr(-6)==='/posts')
-     TelegrammSendMessage('warning! Server is not available')
-        this.setState({serverOn:'ServerOFF'})}
+   componentDidMount(){
+    this.getdata();
+    this.checkServer = setInterval(async()=>{
+     const data = await this.server.getPosts();
+     data?this.setState({serverOn:'ServerON'}):this.setState({serverOn:'ServerOFF'})
+    },2000)
+   }
+   componentWillUnmount(){
+       clearInterval(this.checkServer);
+   }
+//    async checkServer(){
+//         this.getdata()
+//     const  checkServer= setInterval(async()=>{
+//         try{
+//         if(window.location.href.substr(-6)==='/posts'){
+//             const server=await this.server.getPosts()
+//         if(server){
+//           this.getdata();
+//         if(window.location.href.substr(-6)==='/posts')
+//    this.setState({serverOn:'ServerON'})}
+//     }
+//    else clearInterval(checkServer);
+//      }catch(e){if(window.location.href.substr(-6)==='/posts')
+//      TelegrammSendMessage('warning! Server is not available')
+//         this.setState({serverOn:'ServerOFF'})}
      
-    },1000)
-  }  
-  loadData()
+//     },1000)
+//   }  
+  getdata()
  {
   this.server.getPosts()
   .then((data)=>{
-      this.setState({data:data})
-      
+      this.setState({data:data}) 
   })
  }
   async  deleteItem(id) {
-        this.server.deletePost(id);
-        this.loadData();
+       await this.server.deletePost(id);
+        this.getdata();
     }
 
    async addItem(body) {
@@ -69,9 +74,9 @@ export default class PostMain extends Component {
             important: false,
         }
         TelegrammSendMessage(body);
-       this.server.postPost(newItem)
+      await this.server.postPost(newItem)
       }
-       this.loadData()
+       this.getdata()
     }
 
     onToggleImportant(id) {
