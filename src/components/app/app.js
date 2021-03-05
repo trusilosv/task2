@@ -5,6 +5,7 @@ import PostMain from '../post-main'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from '../home'
 import AppFooter from '../appFooter'
+import FormLikePanel from '../formLikePanel'
 function App() {
   
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path='/triangle' component={Triangle} />
       <Route path='/posts'  component={PostMain}/>
       <Route path='/' exact component={Home}/>
+      <Route path='/chess'component={FormLikePanel}/>
      </main>
      <AppFooter/>
      </div>
