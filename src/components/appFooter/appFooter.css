@@ -4,4 +4,6 @@ footer{
    bottom: 0px;
    align-self: flex-end;
    margin-right: 30px;
+   display: flex;
+   
 }

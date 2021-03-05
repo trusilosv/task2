@@ -2,10 +2,12 @@ import './appFooter.css'
 import Telegram_logo from './telegram_logo.png'
 import TelegramForm from '../telegramForm'
 import{ useState } from 'react'
+import FormLikePanel from '../formLikePanel'
 function AppFooter() {
     const [count, setCount] = useState(false)
     return ( 
     <footer>
+        <FormLikePanel/>
         <a href='https://t.me/drefersa' className='homeTechnologies_element logo_react'>
         <img className='home_logo' src={Telegram_logo}  alt="logo"  /> 
         </a>
