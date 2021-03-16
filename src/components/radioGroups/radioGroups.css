@@ -1,0 +1,43 @@
+.RadioGroups-radio{
+   width: 80px;
+   height: 70px;
+   opacity: 0;
+   position: absolute;
+}
+.RadioGroups-radio:hover{
+   cursor: pointer;
+}
+.RadioGroups{
+   display:flex;
+    position:relative;
+    width: 180px;
+    justify-content: space-between;
+    
+}
+.Like{
+   display: flex;
+  border-radius: 8px;
+   justify-content: center;
+   width: 80px;
+   height: 70px;
+   background-color:#F6F7F8;
+}
+.Radio--change{
+   background-color:#DBF0FF ;
+   fill:#2690D8;
+}
+
+.Hand{
+   position: relative;
+   margin-top: 16px;
+   border-radius: 8px;
+   pointer-events:none;
+   user-select:none;
+ height: 32px;
+   
+}
+.Hand--inverted{
+   transform:rotate(0.5turn);
+   margin-top:22px;
+   
+}

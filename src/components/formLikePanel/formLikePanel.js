@@ -2,27 +2,20 @@ import './formLikePanel.css'
 import {useState} from 'react'
 import Hand from './hand'
 function FormLikePanel(){
-   const [handStyle, sethandStyle] = useState({
-      color_like: '#AAAAAA',
-      color_dislike: '#AAAAAA',
-      class_like:'',
-      class_dislike:''
+   const [handStyle,sethandStyle] = useState({ color_like: '#AAAAAA', color_dislike: '#AAAAAA',
+      class_like:'',  class_dislike:''
    })
-   const onChange =(e)=>
-     {if(e.target.value==='like')
-      sethandStyle({
-         color_like: '#2690D8',
-         color_dislike: '#AAAAAA',
-         class_like:' form__like_change',
-         class_dislike:''
-      } )
-       else  sethandStyle({
-      color_like: '#AAAAAA',
-      color_dislike: '#2690D8',
-      class_like:'',
-      class_dislike:' form__like_change'
+   const onChange = (e)=>
+     {
+        if(e.target.value==='like')
+          sethandStyle(
+             { color_like: '#2690D8',  color_dislike: '#AAAAAA',
+          class_like:' form__like_change', class_dislike:''
+             } )
+       else  sethandStyle({color_like: '#AAAAAA',color_dislike: '#2690D8'
+       ,class_like:'',class_dislike:' form__like_change'
    } )
-      
+   setTimeout(()=>alert(e.target.value))
 }
 return(
     <div className='form__LikePanel'>

@@ -25,5 +25,33 @@
 body{
     background-image: url('../home/hogwars.jpg');
 }
+.button_1{
+display:  flex;
+align-items: center;
+justify-content: space-between;
+position: fixed;
+
+bottom: 90px;
+width: 240px;
+height: 70px;
+right: -200px;
+background: #FFFFFF;
+box-shadow: 0px 0px 40px rgba(97, 34, 101, 0.2);
+border-top-left-radius: 35px;
+border-bottom-left-radius: 35px;
+z-index: 20;
+border-style: none;
+transition: all 0.5s;
+background:url('../home/hogwars.jpg') ;
+}
+.button_1:hover{
+   right: 0px;
+    transition: all 0.5s;
+}
+.button_1:last-child{
+    padding-right: 50px;
+    padding-left: 10px;
+}
+
 
 

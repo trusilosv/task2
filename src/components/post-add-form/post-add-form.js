@@ -29,7 +29,7 @@ export default class PostAddForm extends Component {
                 <input
                     type="text"
                     minLength="6"
-                    placeholder="О чем вы думаете сейчас?"
+                  placeholder="О чем вы думаете сейчас?"
                     className="form-control new-post-label"
                     onChange={this.onValueChange}
                     value={this.state.text}
